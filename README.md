@@ -16,6 +16,7 @@ $ brew tap octolab/tap
 - 🚦 [parallel](#-parallel)
 - 👮 [passport](#-passport)
 - 🧐 [tablo](#-tablo)
+- 👨‍🍳 [testit](#-testit)
 - ♻️ [try](#-try)
 
 ## ⏲ [breakit][breakit.promo.page]
@@ -145,6 +146,22 @@ $ source <(tablo completion bash|fish|powershell|zsh)
 [tablo.build.page]:         https://travis-ci.com/octopot/tablo
 [tablo.build.icon]:         https://travis-ci.com/octopot/tablo.svg?branch=master
 [tablo.promo.page]:         https://github.com/octopot/tablo
+
+## 👨‍🍳 [testit][testit.promo.page]
+
+> Extended `go test` for better experience.
+>
+> [![Build][testit.build.icon]][testit.build.page]
+
+```bash
+$ brew install testit
+$ testit version
+$ source <(testit completion bash|fish|powershell|zsh)
+```
+
+[testit.build.page]:        https://travis-ci.com/octolab/testit
+[testit.build.icon]:        https://travis-ci.com/octolab/testit.svg?branch=master
+[testit.promo.page]:        https://github.com/octolab/testit
 
 ## ♻️ [try][try.promo.page]
 
