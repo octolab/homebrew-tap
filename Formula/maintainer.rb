@@ -21,7 +21,7 @@ class Maintainer < Formula
     (bash_completion/"maintainer").write output
 
     output = Utils.popen_read("#{bin}/maintainer completion fish")
-    (fish_completion/"eksctl.fish").write output
+    (fish_completion/"maintainer.fish").write output
 
     output = Utils.popen_read("#{bin}/maintainer completion zsh")
     (zsh_completion/"_maintainer").write output
