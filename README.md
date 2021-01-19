@@ -28,7 +28,7 @@ $ brew tap octolab/tap
 ```bash
 $ brew install breakit
 $ breakit version
-$ source <(breakit completion bash|fish|powershell|zsh)
+$ source <(breakit completion)
 ```
 
 [breakit.build.page]:       https://travis-ci.com/octolab/breakit
@@ -44,7 +44,7 @@ $ source <(breakit completion bash|fish|powershell|zsh)
 ```bash
 $ brew install click
 $ click version
-$ source <(click completion bash|fish|powershell|zsh)
+$ source <(click completion)
 ```
 
 [click.build.page]:         https://travis-ci.com/octopot/click
@@ -60,7 +60,7 @@ $ source <(click completion bash|fish|powershell|zsh)
 ```bash
 $ brew install forma
 $ forma version
-$ source <(forma completion bash|fish|powershell|zsh)
+$ source <(forma completion)
 ```
 
 [forma.build.page]:         https://travis-ci.com/octopot/forma
@@ -76,7 +76,7 @@ $ source <(forma completion bash|fish|powershell|zsh)
 ```bash
 $ brew install guard
 $ guard version
-$ source <(guard completion bash|fish|powershell|zsh)
+$ source <(guard completion)
 ```
 
 [guard.build.page]:         https://travis-ci.com/octopot/guard
@@ -92,7 +92,7 @@ $ source <(guard completion bash|fish|powershell|zsh)
 ```bash
 $ brew install maintainer
 $ maintainer version
-$ source <(maintainer completion bash|fish|powershell|zsh)
+$ source <(maintainer completion)
 ```
 
 [maintainer.build.page]:    https://travis-ci.com/octomation/maintainer
@@ -108,7 +108,7 @@ $ source <(maintainer completion bash|fish|powershell|zsh)
 ```bash
 $ brew install parallel
 $ parallel version
-$ source <(parallel completion bash|fish|powershell|zsh)
+$ source <(parallel completion)
 ```
 
 [parallel.build.page]:      https://travis-ci.com/octolab/parallel
@@ -124,7 +124,7 @@ $ source <(parallel completion bash|fish|powershell|zsh)
 ```bash
 $ brew install passport
 $ passport version
-$ source <(passport completion bash|fish|powershell|zsh)
+$ source <(passport completion)
 ```
 
 [passport.build.page]:      https://travis-ci.com/octopot/passport
@@ -140,7 +140,7 @@ $ source <(passport completion bash|fish|powershell|zsh)
 ```bash
 $ brew install tablo
 $ tablo version
-$ source <(tablo completion bash|fish|powershell|zsh)
+$ source <(tablo completion)
 ```
 
 [tablo.build.page]:         https://travis-ci.com/octopot/tablo
@@ -156,7 +156,7 @@ $ source <(tablo completion bash|fish|powershell|zsh)
 ```bash
 $ brew install testit
 $ testit version
-$ source <(testit completion bash|fish|powershell|zsh)
+$ source <(testit completion)
 ```
 
 [testit.build.page]:        https://travis-ci.com/octolab/testit
@@ -172,7 +172,7 @@ $ source <(testit completion bash|fish|powershell|zsh)
 ```bash
 $ brew install try
 $ try version
-$ source <(try completion bash|fish|powershell|zsh)
+$ source <(try completion)
 ```
 
 [try.build.page]:           https://travis-ci.com/octolab/try
