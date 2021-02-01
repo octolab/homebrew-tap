@@ -5,16 +5,16 @@
 class Testit < Formula
   desc "Extended testing toolset."
   homepage "https://github.com/octolab/testit"
-  version "0.0.1"
+  version "0.1.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/octolab/testit/releases/download/v0.0.1/testit_0.0.1_macOS-64bit.tar.gz"
-    sha256 "41cdba4524f1c087d1390bbfd38ea119f6018e3437fa5507c3fd333633fe3395"
+    url "https://github.com/octolab/testit/releases/download/v0.1.0/testit_0.1.0_macOS-64bit.tar.gz"
+    sha256 "6b8f001b82e926fb086fb57466184d3daec80c827a81d297b54a75d6c58adafd"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/octolab/testit/releases/download/v0.0.1/testit_0.0.1_Linux-64bit.tar.gz"
-    sha256 "c8d703c939934926990d5b1b69270177aa4e66f662320c30e3735ffcae113d1a"
+    url "https://github.com/octolab/testit/releases/download/v0.1.0/testit_0.1.0_Linux-64bit.tar.gz"
+    sha256 "0613beb6e41549b1124ce8de6434872c86780beec85fb579a823f0b90d334fe2"
   end
 
   def install
