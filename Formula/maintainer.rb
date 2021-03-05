@@ -5,16 +5,16 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.0.2"
+  version "0.0.3"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/octomation/maintainer/releases/download/v0.0.2/maintainer_0.0.2_macOS-64bit.tar.gz"
-    sha256 "ebd799952c8c8d9b61e17fa59e78fb3f58207adbe8087f0464911bb464dab993"
+  if OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/octomation/maintainer/releases/download/v0.0.3/maintainer_0.0.3_macOS-64bit.tar.gz"
+    sha256 "89fefb929cf1744c3dde1ae45289243540c79cc596f9049a0d13d62336441acb"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/octomation/maintainer/releases/download/v0.0.2/maintainer_0.0.2_Linux-64bit.tar.gz"
-    sha256 "7ac414be69da9afeb9f92d082d8df2a496a2189ebcd492d494f7626bbaff9819"
+    url "https://github.com/octomation/maintainer/releases/download/v0.0.3/maintainer_0.0.3_Linux-64bit.tar.gz"
+    sha256 "b2f6fe800b7481228dbdb342bdcfa25a91dad8e22c42024487a20942bad541ff"
   end
 
   def install
