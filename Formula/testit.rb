@@ -6,7 +6,6 @@ class Testit < Formula
   desc "Extended testing toolset."
   homepage "https://github.com/octolab/testit"
   version "0.2.0"
-  bottle :unneeded
 
   if OS.mac?
     url "https://github.com/octolab/testit/releases/download/v0.2.0/testit_0.2.0_macOS-64bit.tar.gz"
