@@ -3,7 +3,6 @@ class Tablo < Formula
   desc "The one point of view to all your task boards."
   homepage "https://github.com/octopot/tablo"
   version "0.0.1"
-  bottle :unneeded
 
   if OS.mac?
     url "https://github.com/octopot/tablo/releases/download/v0.0.1/tablo_0.0.1_macOS-64bit.tar.gz"
