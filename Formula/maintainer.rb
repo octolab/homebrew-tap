@@ -6,7 +6,6 @@ class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
   version "0.0.3"
-  bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/octomation/maintainer/releases/download/v0.0.3/maintainer_0.0.3_macOS-64bit.tar.gz"
