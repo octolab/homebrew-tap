@@ -8,17 +8,6 @@
 $ brew tap octolab/tap
 ```
 
-- ⏲ [breakit](#-breakit)
-- 🔗 [click](#-click)
-- 🗃 [forma](#-forma)
-- 💂‍♂️ [guard](#-guard)
-- 👨‍🔧 [maintainer](#-maintainer)
-- 🚦 [parallel](#-parallel)
-- 👮 [passport](#-passport)
-- 🧐 [tablo](#-tablo)
-- 👨‍🍳 [testit](#-testit)
-- ♻️ [try](#-try)
-
 ## ⏲ [breakit][breakit.promo.page]
 
 > Flexible mechanism to execute commands for a limited time.
