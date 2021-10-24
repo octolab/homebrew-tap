@@ -5,30 +5,50 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.0.3"
+  version "0.0.4"
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/octomation/maintainer/releases/download/v0.0.3/maintainer_0.0.3_macOS-64bit.tar.gz"
-    sha256 "89fefb929cf1744c3dde1ae45289243540c79cc596f9049a0d13d62336441acb"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.4/maintainer_0.0.4_macOS-64bit.tar.gz"
+      sha256 "5384e3958cd79c7eec99b5a54ac6419764c2858b91d5448d8859be7c93e342c8"
+
+      def install
+        bin.install "maintainer"
+
+        output = Utils.popen_read("#{bin}/maintainer completion bash")
+        (bash_completion/"maintainer").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion fish")
+        (fish_completion/"maintainer.fish").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion zsh")
+        (zsh_completion/"_maintainer").write output
+
+        prefix.install_metafiles
+      end
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/octomation/maintainer/releases/download/v0.0.3/maintainer_0.0.3_Linux-64bit.tar.gz"
-    sha256 "b2f6fe800b7481228dbdb342bdcfa25a91dad8e22c42024487a20942bad541ff"
-  end
 
-  def install
-    bin.install "maintainer"
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.4/maintainer_0.0.4_Linux-64bit.tar.gz"
+      sha256 "b0ad4ba9e0a4d953be5e5303c9ed770be01a2ccfe03d14cfeca52bd982beae86"
 
-    output = Utils.popen_read("#{bin}/maintainer completion bash")
-    (bash_completion/"maintainer").write output
+      def install
+        bin.install "maintainer"
 
-    output = Utils.popen_read("#{bin}/maintainer completion fish")
-    (fish_completion/"maintainer.fish").write output
+        output = Utils.popen_read("#{bin}/maintainer completion bash")
+        (bash_completion/"maintainer").write output
 
-    output = Utils.popen_read("#{bin}/maintainer completion zsh")
-    (zsh_completion/"_maintainer").write output
+        output = Utils.popen_read("#{bin}/maintainer completion fish")
+        (fish_completion/"maintainer.fish").write output
 
-    prefix.install_metafiles
+        output = Utils.popen_read("#{bin}/maintainer completion zsh")
+        (zsh_completion/"_maintainer").write output
+
+        prefix.install_metafiles
+      end
+    end
   end
 
   test do
