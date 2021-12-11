@@ -5,12 +5,31 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.0.4"
+  version "0.0.5"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.5/maintainer_0.0.5_macOS-64bit_arm.tar.gz"
+      sha256 "2792c4933b1b55b7143c93ae555d3a4bc4a5448a47d792005148dfad5c70b76c"
+
+      def install
+        bin.install "maintainer"
+
+        output = Utils.popen_read("#{bin}/maintainer completion bash")
+        (bash_completion/"maintainer").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion fish")
+        (fish_completion/"maintainer.fish").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion zsh")
+        (zsh_completion/"_maintainer").write output
+
+        prefix.install_metafiles
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.0.4/maintainer_0.0.4_macOS-64bit.tar.gz"
-      sha256 "5384e3958cd79c7eec99b5a54ac6419764c2858b91d5448d8859be7c93e342c8"
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.5/maintainer_0.0.5_macOS-64bit_x86.tar.gz"
+      sha256 "2b868b40b0a8e4013c391da598350f578a2d3f88a956fffa21a79d89dba01c1b"
 
       def install
         bin.install "maintainer"
@@ -30,9 +49,28 @@ class Maintainer < Formula
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.5/maintainer_0.0.5_Linux-64bit_arm.tar.gz"
+      sha256 "815a5e2059dc6418626dcb0d7e9e0b185217b1e7bdcff9b7af7d7a09791ab6c3"
+
+      def install
+        bin.install "maintainer"
+
+        output = Utils.popen_read("#{bin}/maintainer completion bash")
+        (bash_completion/"maintainer").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion fish")
+        (fish_completion/"maintainer.fish").write output
+
+        output = Utils.popen_read("#{bin}/maintainer completion zsh")
+        (zsh_completion/"_maintainer").write output
+
+        prefix.install_metafiles
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.0.4/maintainer_0.0.4_Linux-64bit.tar.gz"
-      sha256 "b0ad4ba9e0a4d953be5e5303c9ed770be01a2ccfe03d14cfeca52bd982beae86"
+      url "https://github.com/octomation/maintainer/releases/download/v0.0.5/maintainer_0.0.5_Linux-64bit_x86.tar.gz"
+      sha256 "9ae394bf69685870bb115d45ba9fec0a80ec9241e56c672e2b311318725f8e90"
 
       def install
         bin.install "maintainer"
