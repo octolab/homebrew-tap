@@ -5,12 +5,12 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.1.0-rc3"
+  version "0.1.0-rc4"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc3/maintainer_0.1.0-rc3_macOS-64bit_x86.tar.gz"
-      sha256 "f6469158f7d416e69bcbc58279812e41634478f6c66c0444bc86cce6597a1acd"
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc4/maintainer_0.1.0-rc4_macOS-64bit_x86.tar.gz"
+      sha256 "4a6dc687d8cd4b7bf096315cbfea302a5c25ef44001cfdfe86c9f962423d6f06"
 
       def install
         bin.install "maintainer"
@@ -28,8 +28,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc3/maintainer_0.1.0-rc3_macOS-64bit_arm.tar.gz"
-      sha256 "00e9af35168712ce9012ca37b3eabc2d29803006770518ab9dda701eddb83d68"
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc4/maintainer_0.1.0-rc4_macOS-64bit_arm.tar.gz"
+      sha256 "c0f9c7fc86e7b9ce83ac54b8d4bcda35f051dae20e0044879c8071df8ee4b849"
 
       def install
         bin.install "maintainer"
@@ -50,8 +50,8 @@ class Maintainer < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc3/maintainer_0.1.0-rc3_Linux-64bit_x86.tar.gz"
-      sha256 "9b82072da097282ce61a1935d0f49ad5f4d20c6c9a25e7ead0001ab490dc3001"
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc4/maintainer_0.1.0-rc4_Linux-64bit_x86.tar.gz"
+      sha256 "277efb382668ed8b0b0bfe7a8e31ff472e294bd3946b55cc0213917797e06f5a"
 
       def install
         bin.install "maintainer"
@@ -69,8 +69,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc3/maintainer_0.1.0-rc3_Linux-64bit_arm.tar.gz"
-      sha256 "ada6c40c5c364ea9a69e1178fde8f0a11c6384fa284941f1a0a2c2fb596c1214"
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc4/maintainer_0.1.0-rc4_Linux-64bit_arm.tar.gz"
+      sha256 "124eec825f33d41531b67ebbfba0f97c5d5f9790e7c6ff40b94ba28da9456fa1"
 
       def install
         bin.install "maintainer"
