@@ -12,6 +12,18 @@ that can be installed using [Homebrew](https://brew.sh).
 $ brew tap octolab/tap
 ```
 
+## 📦 Products
+
+### 🔧 [godownloader][] <sup>fork</sup>
+
+```bash
+$ brew install godownloader
+$ godownloader --version
+```
+
+[godownloader]: https://github.com/kamilsk/godownloader
+
+
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
 [social.preview]:   https://cdn.octolab.org/repo/homebrew-tap.png
