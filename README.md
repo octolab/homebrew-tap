@@ -21,7 +21,17 @@ $ brew install godownloader
 $ godownloader --version
 ```
 
-[godownloader]: https://github.com/kamilsk/godownloader
+[godownloader]: https://github.com/kamilsk/godownloader/releases/tag/homebrew
+
+
+### 🔧 [goimports][] <sup>fork</sup>
+
+```bash
+$ brew install goimports
+$ goimports -version test
+```
+
+[goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
 
 
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
