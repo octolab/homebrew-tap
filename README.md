@@ -34,6 +34,16 @@ $ goimports -version test
 [goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
 
 
+### 🔧 [golangci-lint][] <sup>fork</sup>
+
+```bash
+$ brew install golangci-lint
+$ golangci-lint --version
+```
+
+[golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
+
+
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
 [social.preview]:   https://cdn.octolab.org/repo/homebrew-tap.png
