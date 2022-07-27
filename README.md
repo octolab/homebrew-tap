@@ -18,6 +18,7 @@ $ brew tap octolab/tap
 
 ```bash
 $ brew install godownloader
+$ godownloader --help
 $ godownloader --version
 ```
 
@@ -28,7 +29,8 @@ $ godownloader --version
 
 ```bash
 $ brew install goimports
-$ goimports -version test
+$ goimports -h
+$ goimports -version todo
 ```
 
 [goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
@@ -38,7 +40,8 @@ $ goimports -version test
 
 ```bash
 $ brew install golangci-lint
-$ golangci-lint --version
+$ golangci-lint help
+$ golangci-lint version
 ```
 
 [golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
