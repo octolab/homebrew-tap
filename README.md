@@ -12,6 +12,13 @@ that can be installed using [Homebrew](https://brew.sh).
 brew tap octolab/tap
 ```
 
+| OS     | Arch  | Support |
+|:-------|:------|:-------:|
+| Darwin | amd64 |    ✅    |
+|        | arm64 |    ✅    |
+| Linux  | amd64 |    ✅    |
+|        | arm64 |    ✅    |
+
 ## 📦 Products
 
 ### 🔧 [godownloader][] <sup>fork</sup>
@@ -56,7 +63,6 @@ maintainer version
 ```
 
 [maintainer]: https://github.com/octomation/maintainer
-
 
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
