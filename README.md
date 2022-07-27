@@ -44,6 +44,17 @@ $ golangci-lint --version
 [golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
 
 
+### 👨‍🔧 [maintainer][]
+
+```bash
+$ brew install maintainer
+$ maintainer help
+$ maintainer version
+```
+
+[maintainer]: https://github.com/octomation/maintainer
+
+
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
 [social.preview]:   https://cdn.octolab.org/repo/homebrew-tap.png
