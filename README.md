@@ -19,6 +19,8 @@ brew tap octolab/tap
 | Linux  | amd64 |    ✅    |
 |        | arm64 |    ✅    |
 
+As an alternative, you can use [installation scripts](https://install.octolab.org/).
+
 ## 📦 Products
 
 ### 🔧 [godownloader][] <sup>fork</sup>
