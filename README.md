@@ -9,7 +9,7 @@ that can be installed using [Homebrew](https://brew.sh).
 ## 🧩 Installation
 
 ```bash
-$ brew tap octolab/tap
+brew tap octolab/tap
 ```
 
 ## 📦 Products
@@ -17,9 +17,9 @@ $ brew tap octolab/tap
 ### 🔧 [godownloader][] <sup>fork</sup>
 
 ```bash
-$ brew install godownloader
-$ godownloader --help
-$ godownloader --version
+brew install godownloader
+godownloader --help
+godownloader --version
 ```
 
 [godownloader]: https://github.com/kamilsk/godownloader/releases/tag/homebrew
@@ -28,9 +28,9 @@ $ godownloader --version
 ### 🔧 [goimports][] <sup>fork</sup>
 
 ```bash
-$ brew install goimports
-$ goimports -h
-$ goimports -version todo
+brew install goimports
+goimports -h
+goimports -version todo
 ```
 
 [goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
@@ -39,9 +39,9 @@ $ goimports -version todo
 ### 🔧 [golangci-lint][] <sup>fork</sup>
 
 ```bash
-$ brew install golangci-lint
-$ golangci-lint help
-$ golangci-lint version
+brew install golangci-lint
+golangci-lint help
+golangci-lint version
 ```
 
 [golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
@@ -50,9 +50,9 @@ $ golangci-lint version
 ### 👨‍🔧 [maintainer][]
 
 ```bash
-$ brew install maintainer
-$ maintainer help
-$ maintainer version
+brew install maintainer
+maintainer help
+maintainer version
 ```
 
 [maintainer]: https://github.com/octomation/maintainer
