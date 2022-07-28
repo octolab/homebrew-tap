@@ -31,8 +31,7 @@ godownloader --help
 godownloader --version
 ```
 
-[godownloader]: https://github.com/kamilsk/godownloader/releases/tag/homebrew
-<!-- https://godownloader.octolab.org/ -->
+[godownloader]: https://godownloader.octolab.org/
 
 
 ### 🔧 [goimports][] <sup>fork</sup>
@@ -43,8 +42,7 @@ goimports -h
 goimports -version todo
 ```
 
-[goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
-<!-- https://goimports.octolab.org/ -->
+[goimports]: https://goimports.octolab.org/
 
 
 ### 🔧 [golangci-lint][] <sup>fork</sup>
@@ -55,8 +53,7 @@ golangci-lint help
 golangci-lint version
 ```
 
-[golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
-<!-- https://golangci-lint.octolab.org/ -->
+[golangci-lint]: https://golangci-lint.octolab.org/
 
 
 ### 👨‍🔧 [maintainer][]
@@ -67,8 +64,7 @@ maintainer help
 maintainer version
 ```
 
-[maintainer]: https://github.com/octomation/maintainer
-<!-- https://maintainer.octolab.org/ -->
+[maintainer]: https://maintainer.octolab.org/
 
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
