@@ -3,7 +3,7 @@
 # 🍻 Homebrew
 
 OctoLab's [Homebrew tap](https://docs.brew.sh/Taps) listing the products
-that can be installed using [Homebrew](https://brew.sh).
+that can be installed using [Homebrew](https://brew.sh/).
 <!-- 🍻 Homebrew tap to install OctoLab products. -->
 
 ## 🧩 Installation
@@ -32,6 +32,7 @@ godownloader --version
 ```
 
 [godownloader]: https://github.com/kamilsk/godownloader/releases/tag/homebrew
+<!-- https://godownloader.octolab.org/ -->
 
 
 ### 🔧 [goimports][] <sup>fork</sup>
@@ -43,6 +44,7 @@ goimports -version todo
 ```
 
 [goimports]: https://github.com/kamilsk/go-tools/releases/tag/goimports
+<!-- https://goimports.octolab.org/ -->
 
 
 ### 🔧 [golangci-lint][] <sup>fork</sup>
@@ -54,6 +56,7 @@ golangci-lint version
 ```
 
 [golangci-lint]: https://github.com/kamilsk/golangci-lint/releases/tag/looppointer
+<!-- https://golangci-lint.octolab.org/ -->
 
 
 ### 👨‍🔧 [maintainer][]
@@ -65,6 +68,7 @@ maintainer version
 ```
 
 [maintainer]: https://github.com/octomation/maintainer
+<!-- https://maintainer.octolab.org/ -->
 
 <p align="right">made with ❤️ for everyone by <a href="https://www.octolab.org/">OctoLab</a></p>
 
