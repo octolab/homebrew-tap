@@ -1,4 +1,4 @@
-[![Homebrew][social.preview]][preview.config]
+[![🍻 Homebrew][social.preview]][preview.config]
 
 # 🍻 Homebrew
 
@@ -12,12 +12,14 @@ that can be installed using [Homebrew](https://brew.sh/).
 brew tap octolab/tap
 ```
 
-| OS     | Arch  | Support |
-|:-------|:------|:-------:|
-| Darwin | amd64 |    ✅    |
-|        | arm64 |    ✅    |
-| Linux  | amd64 |    ✅    |
-|        | arm64 |    ✅    |
+Supported platforms:
+
+| OS     | Arch  |
+|:-------|:------|
+| Darwin | amd64 |
+|        | arm64 |
+| Linux  | amd64 |
+|        | arm64 |
 
 As an alternative, you can use [installation scripts](https://install.octolab.org/).
 
