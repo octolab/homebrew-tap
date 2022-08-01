@@ -7,13 +7,13 @@ class Godownloader < Formula
 creates a custom shell script that can download the right package and
 the right version for the existing machine.
 "
-  homepage "https://github.com/kamilsk/godownloader"
-  version "0.1.15"
+  homepage "https://godownloader.octolab.org/"
+  version "0.1.16"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.15/godownloader_0.1.15_darwin-arm64.tar.gz"
-      sha256 "2bcadfd43e8f33861708caaeaf75d2938ce398963a9d1d7205f5d10b029d77de"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.16/godownloader_0.1.16_darwin-arm64.tar.gz"
+      sha256 "ec85959246186fa591e11e936a94156f688ccca033d55714e136bb0ba4955a62"
 
       def install
         bin.install "godownloader"
@@ -21,8 +21,8 @@ the right version for the existing machine.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.15/godownloader_0.1.15_darwin-amd64.tar.gz"
-      sha256 "7705827073a004457698fffeb7856b82894aec0d45320c5e4559daa92f73ed18"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.16/godownloader_0.1.16_darwin-amd64.tar.gz"
+      sha256 "143bdf21ade4f4df42a1ed14f7b240a62763e271afc552bb877dd7cc68c6f2c8"
 
       def install
         bin.install "godownloader"
@@ -33,8 +33,8 @@ the right version for the existing machine.
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.15/godownloader_0.1.15_linux-arm64.tar.gz"
-      sha256 "66374d8a5c441ad5219dd7b40255fae605ee59adb545a8a80da96aa5f7bc4bf1"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.16/godownloader_0.1.16_linux-arm64.tar.gz"
+      sha256 "e1b5fb04b45a61c970a44723f9c9472a34bbc672b43ef62a17030c54887e5a31"
 
       def install
         bin.install "godownloader"
@@ -42,8 +42,8 @@ the right version for the existing machine.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.15/godownloader_0.1.15_linux-amd64.tar.gz"
-      sha256 "389c040e2e7ff5de9a60012decb6a6f9c2aa778bac8c0a60831fd03653b55bc8"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.16/godownloader_0.1.16_linux-amd64.tar.gz"
+      sha256 "4f7946799a93fd23fee95704f6264aba76d632a0f18cfe72b5e9aa742edf5630"
 
       def install
         bin.install "godownloader"
