@@ -8,12 +8,12 @@ creates a custom shell script that can download the right package and
 the right version for the existing machine.
 "
   homepage "https://godownloader.octolab.org/"
-  version "0.1.17"
+  version "0.1.18"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.17/godownloader_0.1.17_darwin-arm64.tar.gz"
-      sha256 "aa283bd415ee09f536cb89e8d051629c51ee2677d4baf12e3a2d97223f9bbdbc"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.18/godownloader_0.1.18_darwin-arm64.tar.gz"
+      sha256 "9e9b206436a6b0bb86d7bfa6cc7c7eb56f2731f99cdf4f9089a366b6c381b24a"
 
       def install
         bin.install "godownloader"
@@ -21,8 +21,8 @@ the right version for the existing machine.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.17/godownloader_0.1.17_darwin-amd64.tar.gz"
-      sha256 "64d2e816f5b9bf31886f8f1a609165bab852d34fcd43ccf171953e519aa8e528"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.18/godownloader_0.1.18_darwin-amd64.tar.gz"
+      sha256 "036ed8329c57ffa942ddc4056fb14ae4b211800b96f33062181b0309c386eeda"
 
       def install
         bin.install "godownloader"
@@ -33,8 +33,8 @@ the right version for the existing machine.
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.17/godownloader_0.1.17_linux-arm64.tar.gz"
-      sha256 "15c459c0145672722a325913e275c7f436c82d44d539f2f6077e03116e88af3b"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.18/godownloader_0.1.18_linux-arm64.tar.gz"
+      sha256 "54b86acb458f39bffcecabf483f8c15c96407783eb09cd4757aa8281f0bf38ee"
 
       def install
         bin.install "godownloader"
@@ -42,8 +42,8 @@ the right version for the existing machine.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.17/godownloader_0.1.17_linux-amd64.tar.gz"
-      sha256 "8626eb6e6e4b7335cada84941b9a4f98fa43e93fb97c499571bc8610ff02d4f1"
+      url "https://github.com/kamilsk/godownloader/releases/download/v0.1.18/godownloader_0.1.18_linux-amd64.tar.gz"
+      sha256 "0ceb701efbc39e62ae63c85916b3adb5003cb065ce1289e83dca7a1641db1dd0"
 
       def install
         bin.install "godownloader"
