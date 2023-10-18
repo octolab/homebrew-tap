@@ -7,12 +7,12 @@ set -euo pipefail
 
 exit 0
 
-brew install octolab/tap/goimports
+brew install octolab/tap/sparkle
 
 expected="$(
-  gh repo view kamilsk/go-tools \
+  gh repo view withsparkle/service \
     --json latestRelease --jq .latestRelease.tagName
 )"
-obtained="v$({ goimports -version 2>/dev/null || true; } | awk -F, '{print $1}')"
+obtained="v$(sparkle version | sed -n 2p | awk -F: '{print $2}' | tr -d ' ')"
 
 [ "${obtained}" == "${expected}" ] || @fatal "expected ${expected}, obtained ${obtained}"

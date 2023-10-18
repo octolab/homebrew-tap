@@ -15,6 +15,7 @@ on:
           - Continuous integration (goimports)
           - Continuous integration (golangci-lint)
           - Continuous integration (maintainer)
+          - Continuous integration (sparkle)
           - Workflow runs cleanup
         default: Workflow runs cleanup
         required: true
@@ -32,10 +33,12 @@ jobs:
   delete:
     name: Deleting
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
 
     steps:
       - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v2
+        uses: Mattraks/delete-workflow-runs@v2.0.4
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
@@ -43,6 +46,18 @@ jobs:
           dry_run: ${{ fromJSON('["", "true"]')[github.event.inputs.dry_run == 'true'] }}
           retain_days: 0
           keep_minimum_runs: 0
+      - name: Cleanup workflow runs
+        run: |
+          gh run list \
+            -R '${{ github.repository }}' \
+            --status completed \
+            --limit 100 \
+            --json databaseId \
+            --jq '.[] | .databaseId' |
+            xargs -n1 --no-run-if-empty gh run delete -R '${{ github.repository }}'
+        if: github.event.inputs.pattern == 'All'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
   notify:
     name: Notifying
@@ -52,12 +67,11 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.0
         with: { fetch-depth: 0 }
 
       - name: Send notification
         uses: ./.github/actions/notify
-        continue-on-error: true
         with:
           emoji: 🧹
           channel: ${{ secrets.SLACK_WEBHOOK }}

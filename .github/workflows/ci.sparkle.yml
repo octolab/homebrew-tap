@@ -1,12 +1,12 @@
-name: Continuous integration (maintainer)
+name: Continuous integration (sparkle)
 
 on:
   push:
     branches: [ main ]
     paths:
       - '.github/actions/check/maintainer.bash'
-      - '.github/workflows/ci.maintainer.yml'
-      - 'Formula/maintainer'
+      - '.github/workflows/ci.sparkle.yml'
+      - 'Formula/sparkle'
 
   schedule:
     - cron: '0 7 * * 1' # at 07:00 on Monday, UTC
@@ -31,7 +31,7 @@ jobs:
 
       - name: Check consistency
         uses: ./.github/actions/check
-        with: { script: maintainer.bash }
+        with: { script: sparkle.bash }
 
   notify:
     name: Notifying
