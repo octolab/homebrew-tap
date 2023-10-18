@@ -5,8 +5,6 @@ set -euo pipefail
 @error() { echo "${@}" >&2; }
 @fatal() { @error "${@}" && exit 1; }
 
-exit 0
-
 brew install octolab/tap/maintainer
 
 expected="$(

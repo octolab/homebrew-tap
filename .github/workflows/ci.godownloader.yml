@@ -22,7 +22,7 @@ on:
 jobs:
   check:
     name: Checking
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout the repository
