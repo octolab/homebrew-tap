@@ -5,12 +5,12 @@
 class Sparkle < Formula
   desc "✨ Sparkle service."
   homepage "https://sparkle.wiki/"
-  version "0.0.2"
+  version "0.1.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/withsparkle/service/releases/download/v0.0.2/sparkle_0.0.2_darwin-arm64.tar.gz"
-      sha256 "9e061a759fa0938365bb70964097662f3ac081c733e10b2b63c0325dac4d3842"
+      url "https://github.com/withsparkle/service/releases/download/v0.1.0/sparkle_0.1.0_darwin-arm64.tar.gz"
+      sha256 "993275d746472844406bf2b5997d357232ce5c46455bab4124d22e28c95b2523"
 
       def install
         bin.install "sparkle"
@@ -39,8 +39,8 @@ class Sparkle < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.0.2/sparkle_0.0.2_darwin-amd64.tar.gz"
-      sha256 "a056a4fada49aff642766d77971c433056b9b39bcc93b322f045f672ac1de103"
+      url "https://github.com/withsparkle/service/releases/download/v0.1.0/sparkle_0.1.0_darwin-amd64.tar.gz"
+      sha256 "7595372c11de14d21c19a7534648b9edb09a8fbfdbda8dde4ea6d8471a999e28"
 
       def install
         bin.install "sparkle"
@@ -72,8 +72,8 @@ class Sparkle < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/withsparkle/service/releases/download/v0.0.2/sparkle_0.0.2_linux-arm64.tar.gz"
-      sha256 "0cec40ae2e894b8a4536477100ee67fc4d7f6481f465ca47ce6be8d2453d167d"
+      url "https://github.com/withsparkle/service/releases/download/v0.1.0/sparkle_0.1.0_linux-arm64.tar.gz"
+      sha256 "92d56d47c909fffdc557e56e9717e5085f60e976fea5d9439895e3d2f8dcc771"
 
       def install
         bin.install "sparkle"
@@ -102,8 +102,8 @@ class Sparkle < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.0.2/sparkle_0.0.2_linux-amd64.tar.gz"
-      sha256 "757c698430e817d2d84114a977ffcc6b15881e3fcd2f8816398aa31fd8102751"
+      url "https://github.com/withsparkle/service/releases/download/v0.1.0/sparkle_0.1.0_linux-amd64.tar.gz"
+      sha256 "cefad75a051d8ade063f873045f2860ffec50132258f0209807c9f95ad39bf05"
 
       def install
         bin.install "sparkle"
