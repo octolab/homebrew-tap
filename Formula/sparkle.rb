@@ -7,12 +7,12 @@ class Sparkle < Formula
 and Personal Knowledge Management platform.
 "
   homepage "https://sparkle.wiki/"
-  version "0.2.0"
+  version "0.2.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/withsparkle/service/releases/download/v0.2.0/sparkle_0.2.0_darwin-arm64.tar.gz"
-      sha256 "952d95315e2587d2992d13ad9ab4502c7507bd2c44f14c099b0f6076c7e49aca"
+      url "https://github.com/withsparkle/service/releases/download/v0.2.2/sparkle_0.2.2_darwin-arm64.tar.gz"
+      sha256 "0d27bdd905ac024f9607d6f997adbe3c0d62372b04df3c3e5a10e6c6a7f44a71"
 
       def install
         bin.install "sparkle"
@@ -30,8 +30,8 @@ and Personal Knowledge Management platform.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.2.0/sparkle_0.2.0_darwin-amd64.tar.gz"
-      sha256 "ce3801cbe3086c81c88afcb0693b0539aee9bba90d0b3c6b114489a84e091c1a"
+      url "https://github.com/withsparkle/service/releases/download/v0.2.2/sparkle_0.2.2_darwin-amd64.tar.gz"
+      sha256 "fc0866887cafb03ae28afe501be363decdd0f02a565a900a28ff2c3b6de22f74"
 
       def install
         bin.install "sparkle"
@@ -52,8 +52,8 @@ and Personal Knowledge Management platform.
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/withsparkle/service/releases/download/v0.2.0/sparkle_0.2.0_linux-arm64.tar.gz"
-      sha256 "a09344edf6c6c9f7becbb6f9ab63c9c4374fd8846c2e894191050fd4a3d1ee2e"
+      url "https://github.com/withsparkle/service/releases/download/v0.2.2/sparkle_0.2.2_linux-arm64.tar.gz"
+      sha256 "67b7f06ea169f6c8bd6abb4e9c8db87932211a9901d2b1040682bfb37181c48c"
 
       def install
         bin.install "sparkle"
@@ -71,8 +71,8 @@ and Personal Knowledge Management platform.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.2.0/sparkle_0.2.0_linux-amd64.tar.gz"
-      sha256 "2702f06bd8e7e8900d95a828d055d23ffb3a6fbf7c9116b8c4198d95b727ab48"
+      url "https://github.com/withsparkle/service/releases/download/v0.2.2/sparkle_0.2.2_linux-amd64.tar.gz"
+      sha256 "40a73823499390d1d8aaf5304ade2e520d3cf212c55d6a7b2cefb698df529102"
 
       def install
         bin.install "sparkle"
