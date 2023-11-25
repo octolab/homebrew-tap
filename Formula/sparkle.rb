@@ -7,22 +7,19 @@ class Sparkle < Formula
 and Personal Knowledge Management platform.
 "
   homepage "https://sparkle.wiki/"
-  version "0.3.0"
+  version "0.3.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/withsparkle/service/releases/download/v0.3.0/sparkle_0.3.0_darwin-arm64.tar.gz"
-      sha256 "3a474f80d7e09edf3d3898b31f83846a610dff7bb8d54ddfe2f84a0508737c38"
+      url "https://github.com/withsparkle/service/releases/download/v0.3.1/sparkle_0.3.1_darwin-arm64.tar.gz"
+      sha256 "b073a9956b722a1d2f7d8b40a105c001c1900fa8356367617e4d6d9fbfc9cd84"
 
       def install
         bin.install "sparkle"
-
         output = Utils.popen_read("#{bin}/sparkle completion bash")
         (bash_completion/"sparkle").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion fish")
         (fish_completion/"sparkle.fish").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion zsh")
         (zsh_completion/"_sparkle").write output
 
@@ -30,18 +27,15 @@ and Personal Knowledge Management platform.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.3.0/sparkle_0.3.0_darwin-amd64.tar.gz"
-      sha256 "e43aa68fa534016484d99ed119e7719eddabe1d561da68ad523f73f1e75031a1"
+      url "https://github.com/withsparkle/service/releases/download/v0.3.1/sparkle_0.3.1_darwin-amd64.tar.gz"
+      sha256 "5e5d64907831b2e957e6d770396ff6c345643cd10b130cbd292929fc6f06afb5"
 
       def install
         bin.install "sparkle"
-
         output = Utils.popen_read("#{bin}/sparkle completion bash")
         (bash_completion/"sparkle").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion fish")
         (fish_completion/"sparkle.fish").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion zsh")
         (zsh_completion/"_sparkle").write output
 
@@ -52,18 +46,15 @@ and Personal Knowledge Management platform.
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/withsparkle/service/releases/download/v0.3.0/sparkle_0.3.0_linux-arm64.tar.gz"
-      sha256 "13103dd98c1f1f777b94e1ce1cf30b9928d1af19cfabc704173bc9fa33f3a9cd"
+      url "https://github.com/withsparkle/service/releases/download/v0.3.1/sparkle_0.3.1_linux-arm64.tar.gz"
+      sha256 "86324a5ea977cae0c496f24fbddfc69f721953d8a114ddd00bbf7087762e4e91"
 
       def install
         bin.install "sparkle"
-
         output = Utils.popen_read("#{bin}/sparkle completion bash")
         (bash_completion/"sparkle").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion fish")
         (fish_completion/"sparkle.fish").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion zsh")
         (zsh_completion/"_sparkle").write output
 
@@ -71,18 +62,15 @@ and Personal Knowledge Management platform.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/withsparkle/service/releases/download/v0.3.0/sparkle_0.3.0_linux-amd64.tar.gz"
-      sha256 "2bfb8680f371d8edee0567a028ba55c7f31b1f22330f575304cf2b6489c8b56b"
+      url "https://github.com/withsparkle/service/releases/download/v0.3.1/sparkle_0.3.1_linux-amd64.tar.gz"
+      sha256 "7b516a9bcf57c4aef9191f4133e2e73683973de9295606f552c9cf34b44205a3"
 
       def install
         bin.install "sparkle"
-
         output = Utils.popen_read("#{bin}/sparkle completion bash")
         (bash_completion/"sparkle").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion fish")
         (fish_completion/"sparkle.fish").write output
-
         output = Utils.popen_read("#{bin}/sparkle completion zsh")
         (zsh_completion/"_sparkle").write output
 
