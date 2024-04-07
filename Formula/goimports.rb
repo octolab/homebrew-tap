@@ -10,12 +10,12 @@ your code in the same style as gofmt so it can be used
 as a replacement for your editor's gofmt-on-save hook.
 "
   homepage "https://goimports.octolab.org/"
-  version "0.19.0"
+  version "0.20.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/kamilsk/go-tools/releases/download/v0.19.0/goimports_0.19.0_darwin-arm64.tar.gz"
-      sha256 "4da7aaab21c2d68e784e00804903a91b6fe7b72bb680b3c25930f146bbbc3afc"
+      url "https://github.com/kamilsk/go-tools/releases/download/v0.20.0/goimports_0.20.0_darwin-arm64.tar.gz"
+      sha256 "3296c3ec48cbb9652b25c0addaa69e673978bdf03c7c016ddfa8f20e3ca7647f"
 
       def install
         bin.install "goimports"
@@ -23,8 +23,8 @@ as a replacement for your editor's gofmt-on-save hook.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/go-tools/releases/download/v0.19.0/goimports_0.19.0_darwin-amd64.tar.gz"
-      sha256 "49380b17785733660cb42eee29f06fdbbefae95c0caaf5d4c9ef1e65f76b7aa7"
+      url "https://github.com/kamilsk/go-tools/releases/download/v0.20.0/goimports_0.20.0_darwin-amd64.tar.gz"
+      sha256 "a448c5c68666423ca9433698657e54fc9c42d018d40094402b511895d5775c2e"
 
       def install
         bin.install "goimports"
@@ -35,8 +35,8 @@ as a replacement for your editor's gofmt-on-save hook.
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kamilsk/go-tools/releases/download/v0.19.0/goimports_0.19.0_linux-arm64.tar.gz"
-      sha256 "597d5fcadcd92271475de48d77bce57e7d35111f246c9f3ee60a7bf6e760b14b"
+      url "https://github.com/kamilsk/go-tools/releases/download/v0.20.0/goimports_0.20.0_linux-arm64.tar.gz"
+      sha256 "f93825486ab5e8477d522387dc2d23f8286956d39a4ee16c3f91a5e93ff693c0"
 
       def install
         bin.install "goimports"
@@ -44,8 +44,8 @@ as a replacement for your editor's gofmt-on-save hook.
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kamilsk/go-tools/releases/download/v0.19.0/goimports_0.19.0_linux-amd64.tar.gz"
-      sha256 "785bc569a5e54b7f6448529b4cdc8de498190d3862d762ed1b567cb247489995"
+      url "https://github.com/kamilsk/go-tools/releases/download/v0.20.0/goimports_0.20.0_linux-amd64.tar.gz"
+      sha256 "7d4f741abde44c714cf1a05850f1d4cde6f0918305ef9f2fcc68dcf52bf9274f"
 
       def install
         bin.install "goimports"
