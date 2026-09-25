@@ -5,91 +5,70 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.1.0-rc11"
+  version "0.1.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc11/maintainer_0.1.0-rc11_darwin-arm64.tar.gz"
-      sha256 "775adc7cd6863ce60a8505e0b1ad8c2e2afbbf8c9b0a0e406ccdc701a0cf83ee"
+    if Hardware::CPU.intel?
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0/maintainer_0.1.0_darwin-amd64.tar.gz"
+      sha256 "c439f9ddb2344a733eca57cae89f91ce5cd601060a180c0a78f3c86d77f48921"
 
-      def install
+      define_method(:install) do
         bin.install "maintainer"
-
-        output = Utils.popen_read("#{bin}/maintainer completion bash")
-        (bash_completion/"maintainer").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion fish")
-        (fish_completion/"maintainer.fish").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion zsh")
-        (zsh_completion/"_maintainer").write output
-
+        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
+        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
+        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
         prefix.install_metafiles
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc11/maintainer_0.1.0-rc11_darwin-amd64.tar.gz"
-      sha256 "66e6412a56b2ebfcce6d694e76c0cf07fada74e903a760232cd8956bf5004ad7"
+    if Hardware::CPU.arm?
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0/maintainer_0.1.0_darwin-arm64.tar.gz"
+      sha256 "d9e63c275e52f0ec689b0e0bb6eb9f64c73ba4286e51fd358877a0ea6cd5f58d"
 
-      def install
+      define_method(:install) do
         bin.install "maintainer"
-
-        output = Utils.popen_read("#{bin}/maintainer completion bash")
-        (bash_completion/"maintainer").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion fish")
-        (fish_completion/"maintainer.fish").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion zsh")
-        (zsh_completion/"_maintainer").write output
-
+        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
+        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
+        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
         prefix.install_metafiles
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc11/maintainer_0.1.0-rc11_linux-arm64.tar.gz"
-      sha256 "06db3b24b383027ec5c845c318d54f24fcd41024054b01b3f65f748f6e5ff516"
-
-      def install
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0/maintainer_0.1.0_linux-amd64.tar.gz"
+      sha256 "b5f17c209c4b7051aa8bb38e17547ad074ebf25f78f85868ef0625afe18a7e25"
+      define_method(:install) do
         bin.install "maintainer"
-
-        output = Utils.popen_read("#{bin}/maintainer completion bash")
-        (bash_completion/"maintainer").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion fish")
-        (fish_completion/"maintainer.fish").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion zsh")
-        (zsh_completion/"_maintainer").write output
-
+        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
+        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
+        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
         prefix.install_metafiles
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.1.0-rc11/maintainer_0.1.0-rc11_linux-amd64.tar.gz"
-      sha256 "fd1cc3656625ef8239cd0788b5db282b1c4ea38a050fc770d1220695e13e89ad"
-
-      def install
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/octomation/maintainer/releases/download/v0.1.0/maintainer_0.1.0_linux-arm64.tar.gz"
+      sha256 "f805c3b145de0412694a40fa204fd70e77d3328da48fa20e1a759402b85cc3e4"
+      define_method(:install) do
         bin.install "maintainer"
-
-        output = Utils.popen_read("#{bin}/maintainer completion bash")
-        (bash_completion/"maintainer").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion fish")
-        (fish_completion/"maintainer.fish").write output
-
-        output = Utils.popen_read("#{bin}/maintainer completion zsh")
-        (zsh_completion/"_maintainer").write output
-
+        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
+        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
+        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
         prefix.install_metafiles
       end
     end
   end
 
+  deprecate! date: "2026-11-05", because: "is replaced by the cask", replacement_cask: "maintainer"
+
+  def caveats
+    <<~EOS
+      maintainer is also published as a cask; keep only one installation.
+      To switch: brew uninstall --formula maintainer && brew install --cask maintainer
+    EOS
+  end
+
   test do
-    system "#{bin}/maintainer version"
+    system "#{bin}/maintainer", "version"
   end
 end
