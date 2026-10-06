@@ -6,25 +6,25 @@ cask "indexit" do
     end
   end
 
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     on_arm do
-      sha256 "f1d0f0afbfccde5402831db707fef77d94ec2524cf9c9f0d6fb77e0115784afe"
+      sha256 "2124a358ac4cf3539305baf478d0f09adc242c5b6395aac1059ca5ef655246fa"
       url "https://github.com/octopot/indexit/releases/download/v#{version}/indexit_#{version}_darwin-arm64.tar.gz"
     end
     on_intel do
-      sha256 "673d08e2d325cd1e668b6165d783ef85d1fe25b066f10dc167b53200e4a5f9ce"
+      sha256 "53eaed8e18dc7383de25a46d80976989a4e6b12f2fdd8f9e8e8b050db21e84bc"
       url "https://github.com/octopot/indexit/releases/download/v#{version}/indexit_#{version}_darwin-amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "cb8af8022bbd97aea8afebbcc0412d16e880e6945c8865f58230c9863e44d680"
+      sha256 "55bd590a132f02663c308187f913cf2f5494a443de044d94e44bbc359ea59d2f"
       url "https://github.com/octopot/indexit/releases/download/v#{version}/indexit_#{version}_linux-arm64.tar.gz"
     end
     on_intel do
-      sha256 "c44ef04b92f46535aa840d4ece5ffad413731c5c98c0ecc6f5dff851fe049712"
+      sha256 "626859ba9e016b039b265025fb08e0d5ca0e325148f5f3b79b58d0b581239c3a"
       url "https://github.com/octopot/indexit/releases/download/v#{version}/indexit_#{version}_linux-amd64.tar.gz"
     end
   end
