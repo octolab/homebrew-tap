@@ -5,12 +5,12 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.0/maintainer_0.2.0_darwin-amd64.tar.gz"
-      sha256 "2e6cc06da1e2b59c577f1a370c9c07d7cbffb6746f87fcfb836ad15216a1a6ba"
+      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_darwin-amd64.tar.gz"
+      sha256 "8f32602e0486f5e37e59abdb53a16a34e368f61ce45363a0f02b2ce0241862a5"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -21,8 +21,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.0/maintainer_0.2.0_darwin-arm64.tar.gz"
-      sha256 "40f339d03ac6feaccf1413d67c918060256f3d94a272dc95fc67c994018f0c7c"
+      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_darwin-arm64.tar.gz"
+      sha256 "511f3217bdb55dec2ebe9df276f53f47512fe24a87040af44954090bbaea1054"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -36,8 +36,8 @@ class Maintainer < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.0/maintainer_0.2.0_linux-amd64.tar.gz"
-      sha256 "41cb32efa38c440b965f14f4db3ebf549f8bac88bc3b974a1bf558c070452f8d"
+      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_linux-amd64.tar.gz"
+      sha256 "ebd99ddb8c00772124e3a0faa7b943b66df86bd68652235f4d5d1ad010c95ef3"
       define_method(:install) do
         bin.install "maintainer"
         (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
@@ -47,8 +47,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.0/maintainer_0.2.0_linux-arm64.tar.gz"
-      sha256 "35e0db7c73e84fff4dcb0a71ba030d1da0f626c8ad7e8d7d7492861ad0d34df8"
+      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_linux-arm64.tar.gz"
+      sha256 "903cf6c5f3d333b90e08a5641179645b2413fa77ec3eeb9c49b5cf98ad20fdef"
       define_method(:install) do
         bin.install "maintainer"
         (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
@@ -59,12 +59,9 @@ class Maintainer < Formula
     end
   end
 
-  deprecate! date: "2026-11-05", because: "is replaced by the cask", replacement_cask: "maintainer"
-
   def caveats
     <<~EOS
-      maintainer is also published as a cask; keep only one installation.
-      To switch: brew uninstall --formula maintainer && brew install --cask maintainer
+      maintainer is published as a formula and as a cask; keep only one installation.
     EOS
   end
 
