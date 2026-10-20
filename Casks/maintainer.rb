@@ -9,25 +9,25 @@ cask "maintainer" do
     end
   end
 
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     on_arm do
-      sha256 "40f339d03ac6feaccf1413d67c918060256f3d94a272dc95fc67c994018f0c7c"
+      sha256 "511f3217bdb55dec2ebe9df276f53f47512fe24a87040af44954090bbaea1054"
       url "https://github.com/octomation/maintainer/releases/download/v#{version}/maintainer_#{version}_darwin-arm64.tar.gz"
     end
     on_intel do
-      sha256 "2e6cc06da1e2b59c577f1a370c9c07d7cbffb6746f87fcfb836ad15216a1a6ba"
+      sha256 "8f32602e0486f5e37e59abdb53a16a34e368f61ce45363a0f02b2ce0241862a5"
       url "https://github.com/octomation/maintainer/releases/download/v#{version}/maintainer_#{version}_darwin-amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "35e0db7c73e84fff4dcb0a71ba030d1da0f626c8ad7e8d7d7492861ad0d34df8"
+      sha256 "903cf6c5f3d333b90e08a5641179645b2413fa77ec3eeb9c49b5cf98ad20fdef"
       url "https://github.com/octomation/maintainer/releases/download/v#{version}/maintainer_#{version}_linux-arm64.tar.gz"
     end
     on_intel do
-      sha256 "41cb32efa38c440b965f14f4db3ebf549f8bac88bc3b974a1bf558c070452f8d"
+      sha256 "ebd99ddb8c00772124e3a0faa7b943b66df86bd68652235f4d5d1ad010c95ef3"
       url "https://github.com/octomation/maintainer/releases/download/v#{version}/maintainer_#{version}_linux-amd64.tar.gz"
     end
   end
