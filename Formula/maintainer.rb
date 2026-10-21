@@ -5,30 +5,27 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.2.1"
+  version "0.3.0"
+  license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_darwin-amd64.tar.gz"
-      sha256 "8f32602e0486f5e37e59abdb53a16a34e368f61ce45363a0f02b2ce0241862a5"
+      url "https://github.com/octomation/maintainer/releases/download/v0.3.0/maintainer_0.3.0_darwin-amd64.tar.gz"
+      sha256 "6666ed1957d0108d670a0d0c1eca680f3fd74c6d83512d10d2108ae44b654f74"
 
       define_method(:install) do
         bin.install "maintainer"
-        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
-        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
-        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
+        generate_completions_from_executable(bin/"maintainer", "completion")
         prefix.install_metafiles
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_darwin-arm64.tar.gz"
-      sha256 "511f3217bdb55dec2ebe9df276f53f47512fe24a87040af44954090bbaea1054"
+      url "https://github.com/octomation/maintainer/releases/download/v0.3.0/maintainer_0.3.0_darwin-arm64.tar.gz"
+      sha256 "77d23170f9dba05589c9ea9781100ae0412598f82c21c72695041d4adeec0d71"
 
       define_method(:install) do
         bin.install "maintainer"
-        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
-        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
-        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
+        generate_completions_from_executable(bin/"maintainer", "completion")
         prefix.install_metafiles
       end
     end
@@ -36,24 +33,20 @@ class Maintainer < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_linux-amd64.tar.gz"
-      sha256 "ebd99ddb8c00772124e3a0faa7b943b66df86bd68652235f4d5d1ad010c95ef3"
+      url "https://github.com/octomation/maintainer/releases/download/v0.3.0/maintainer_0.3.0_linux-amd64.tar.gz"
+      sha256 "7ff3ed1ae5d1606b8e86ca93c429904e10e1e1dac4652a31e358eb16c17e0795"
       define_method(:install) do
         bin.install "maintainer"
-        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
-        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
-        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
+        generate_completions_from_executable(bin/"maintainer", "completion")
         prefix.install_metafiles
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.2.1/maintainer_0.2.1_linux-arm64.tar.gz"
-      sha256 "903cf6c5f3d333b90e08a5641179645b2413fa77ec3eeb9c49b5cf98ad20fdef"
+      url "https://github.com/octomation/maintainer/releases/download/v0.3.0/maintainer_0.3.0_linux-arm64.tar.gz"
+      sha256 "a4e35f90132ae81a09c55c7879fe510084d136e0cde019ebef9e41a331c50c07"
       define_method(:install) do
         bin.install "maintainer"
-        (bash_completion/"maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "bash")
-        (zsh_completion/"_maintainer").write Utils.popen_read("#{bin}/maintainer", "completion", "zsh")
-        (fish_completion/"maintainer.fish").write Utils.popen_read("#{bin}/maintainer", "completion", "fish")
+        generate_completions_from_executable(bin/"maintainer", "completion")
         prefix.install_metafiles
       end
     end
@@ -61,11 +54,22 @@ class Maintainer < Formula
 
   def caveats
     <<~EOS
-      maintainer is published as a formula and as a cask; keep only one installation.
+      Start the local service as your normal user:
+        brew services start octolab/tap/maintainer
+      Then open http://maintainer.localhost:17841/
     EOS
+  end
+
+  service do
+    run macos: [opt_bin/"maintainer", "service", "run"]
+    keep_alive true
+    working_dir Dir.home
+    log_path var/"log/maintainer.log"
+    error_log_path var/"log/maintainer.log"
   end
 
   test do
     system "#{bin}/maintainer", "version"
+    system "#{bin}/maintainer", "service", "run", "--help"
   end
 end
