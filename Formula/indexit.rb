@@ -5,13 +5,13 @@
 class Indexit < Formula
   desc "CLI for indexing personal data."
   homepage "https://github.com/octopot/indexit"
-  version "0.3.1"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octopot/indexit/releases/download/v0.3.1/indexit_0.3.1_darwin-amd64.tar.gz"
-      sha256 "7d153b4ea411db4b3d9d6876eda593863a1357b8faa085b957fa4a62138b447a"
+      url "https://github.com/octopot/indexit/releases/download/v0.4.0/indexit_0.4.0_darwin-amd64.tar.gz"
+      sha256 "5c694f1781035b8c1c67a9635581529517268d594ac32461c5109a48eac01cfd"
 
       define_method(:install) do
         bin.install "indexit"
@@ -19,8 +19,8 @@ class Indexit < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octopot/indexit/releases/download/v0.3.1/indexit_0.3.1_darwin-arm64.tar.gz"
-      sha256 "1493bdbfaa5912e6c0c27e3bd2c8705dd8c74025daf9cdaa62b6ce1fbb84f4af"
+      url "https://github.com/octopot/indexit/releases/download/v0.4.0/indexit_0.4.0_darwin-arm64.tar.gz"
+      sha256 "aab9d0f2e59c02fb8c2c9e31f026eb8807fe42e1c0c881f87f81db3c880f3bf1"
 
       define_method(:install) do
         bin.install "indexit"
@@ -31,16 +31,16 @@ class Indexit < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octopot/indexit/releases/download/v0.3.1/indexit_0.3.1_linux-amd64.tar.gz"
-      sha256 "d9824b7664b2a0b12a40cb62f2096d1284c3bcdaaeae91cb40e9366a1a87fec1"
+      url "https://github.com/octopot/indexit/releases/download/v0.4.0/indexit_0.4.0_linux-amd64.tar.gz"
+      sha256 "e1329b1561800ac712f73a217f80c79abfa4bfffe0b340bc575dfc6ff9bee98d"
       define_method(:install) do
         bin.install "indexit"
         generate_completions_from_executable(bin/"indexit", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octopot/indexit/releases/download/v0.3.1/indexit_0.3.1_linux-arm64.tar.gz"
-      sha256 "7c8ded586866b80b18722370fd94f1c7badd09670d07f1e9c0ac79d799854aac"
+      url "https://github.com/octopot/indexit/releases/download/v0.4.0/indexit_0.4.0_linux-arm64.tar.gz"
+      sha256 "9a005059dad0f741116911877a75a1049484572ad4d905aae0d216c08274b78a"
       define_method(:install) do
         bin.install "indexit"
         generate_completions_from_executable(bin/"indexit", "completion")
