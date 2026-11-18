@@ -1,9 +1,8 @@
 cask "susi" do
-  version "0.1.0"
-  sha256 "e6939a1b3e2a935274e6ec047810fad9389b1fa0a72323c75077521496971094"
+  version "0.1.1"
+  sha256 "6a0c4fcaf7837cccd9f63d8c4eaa3b511c43bde3cad792e66cf52402938fb0e2"
 
-  url "https://github.com/octopot/susi/releases/download/v#{version}/susi_#{version}_darwin-arm64.zip",
-      verified: "github.com/octopot/susi/"
+  url "https://github.com/octopot/susi/releases/download/v#{version}/susi_#{version}_darwin-arm64.zip"
   name "Susi"
   desc "Prompt composer with local model rewrites"
   homepage "https://susi.octolab.org/"
