@@ -5,13 +5,13 @@
 class Pulse < Formula
   desc "Morning paper of the GitHub trends that shows only what is new"
   homepage "https://pulse.octolab.org/"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/pulse/releases/download/v0.1.0/pulse_0.1.0_darwin-amd64.tar.gz"
-      sha256 "e09f09fb7b14d25fbb7687fd61be2eef538d73cc236fdd47e059f3de8f674ee2"
+      url "https://github.com/octomation/pulse/releases/download/v0.1.1/pulse_0.1.1_darwin-amd64.tar.gz"
+      sha256 "a38cd7b0e8f87e751b9ddb7d17fdb0f730d06a445adca9a71e7fb9d3354523df"
 
       define_method(:install) do
         bin.install "pulse"
@@ -22,8 +22,8 @@ class Pulse < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/pulse/releases/download/v0.1.0/pulse_0.1.0_darwin-arm64.tar.gz"
-      sha256 "543e7e4f132e9e4a5aecd7ba82c9beb8320b7312b75214b1bc62bd7c1d91bfff"
+      url "https://github.com/octomation/pulse/releases/download/v0.1.1/pulse_0.1.1_darwin-arm64.tar.gz"
+      sha256 "255922babfacf7d56633c79a7f6db08087f1837f9fc52705c9faeaa1a0d5d8f6"
 
       define_method(:install) do
         bin.install "pulse"
@@ -37,8 +37,8 @@ class Pulse < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/pulse/releases/download/v0.1.0/pulse_0.1.0_linux-amd64.tar.gz"
-      sha256 "7b899ab2c8908f44d94a52ea1845228de6f07bda0074e351063290a25b0b3bb8"
+      url "https://github.com/octomation/pulse/releases/download/v0.1.1/pulse_0.1.1_linux-amd64.tar.gz"
+      sha256 "b4d22596fb0922bd621d27c346dc13871fa39764fb2892646326353c4388df57"
       define_method(:install) do
         bin.install "pulse"
         generate_completions_from_executable(bin/"pulse", "completion")
@@ -48,8 +48,8 @@ class Pulse < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/pulse/releases/download/v0.1.0/pulse_0.1.0_linux-arm64.tar.gz"
-      sha256 "899bb9557bb338bc4fedd6610a19486183ae07efda967a40c1c804c10e31e021"
+      url "https://github.com/octomation/pulse/releases/download/v0.1.1/pulse_0.1.1_linux-arm64.tar.gz"
+      sha256 "7c9ed141dbfcc3435df8eb4d14df45c0191ff4c1f56738227d779472d6a2ecce"
       define_method(:install) do
         bin.install "pulse"
         generate_completions_from_executable(bin/"pulse", "completion")
@@ -60,8 +60,28 @@ class Pulse < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      Start the local service as your normal user:
+        brew services start octolab/tap/pulse
+      Then open http://pulse.localhost:17842/
+      The service does not see the variables of your shell: the GitHub token
+      of the reader goes into ~/.config/pulse/config.toml, as
+      https://pulse.octolab.org/trend-watch/ shows.
+    EOS
+  end
+
+  service do
+    run macos: [opt_bin/"pulse"]
+    keep_alive true
+    working_dir Dir.home
+    log_path var/"log/pulse.log"
+    error_log_path var/"log/pulse.log"
+  end
+
   test do
     system "#{bin}/pulse", "version"
+    system "#{bin}/pulse", "--help"
     system "#{bin}/pulsectl", "version"
   end
 end
