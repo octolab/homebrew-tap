@@ -5,13 +5,13 @@
 class Pulse < Formula
   desc "Morning paper of the GitHub trends that shows only what is new"
   homepage "https://pulse.octolab.org/"
-  version "0.2.0"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/pulse/releases/download/v0.2.0/pulse_0.2.0_darwin-amd64.tar.gz"
-      sha256 "a059123e9b2227124263fdeee74341525c0b79df23b5499c3190641b33d6c185"
+      url "https://github.com/octomation/pulse/releases/download/v0.2.1/pulse_0.2.1_darwin-amd64.tar.gz"
+      sha256 "54b55669c610fbdc8c9a7b5a4caf39edb63627d507862c1d106e748e728a476a"
 
       define_method(:install) do
         bin.install "pulse"
@@ -22,8 +22,8 @@ class Pulse < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/pulse/releases/download/v0.2.0/pulse_0.2.0_darwin-arm64.tar.gz"
-      sha256 "8c803cb754ca7bb77ffe5aaf1eea7855bc4201683c084d39e9a9a953fb089498"
+      url "https://github.com/octomation/pulse/releases/download/v0.2.1/pulse_0.2.1_darwin-arm64.tar.gz"
+      sha256 "d7cfd5f4b811861b91dfd1fca01853f033b41c74de1505a3127744130912df5e"
 
       define_method(:install) do
         bin.install "pulse"
@@ -37,8 +37,8 @@ class Pulse < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/pulse/releases/download/v0.2.0/pulse_0.2.0_linux-amd64.tar.gz"
-      sha256 "517d8011347cbd04e92c007d1894a8027902143f11d9d1a5b35f63ee01da478d"
+      url "https://github.com/octomation/pulse/releases/download/v0.2.1/pulse_0.2.1_linux-amd64.tar.gz"
+      sha256 "5d659baebb2bcf980d9df43b9a4affab2c26a0e0c7e4541f4ec22db2cbe0903e"
       define_method(:install) do
         bin.install "pulse"
         generate_completions_from_executable(bin/"pulse", "completion")
@@ -48,8 +48,8 @@ class Pulse < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/pulse/releases/download/v0.2.0/pulse_0.2.0_linux-arm64.tar.gz"
-      sha256 "a72e39134ea87b09403ff6b301aec3aa868512dab26760f9705d5c0a7075b98b"
+      url "https://github.com/octomation/pulse/releases/download/v0.2.1/pulse_0.2.1_linux-arm64.tar.gz"
+      sha256 "e32c1a10b89f469f715a7e183719c64e84acb332f6d0c8098879c89a0bc2c587"
       define_method(:install) do
         bin.install "pulse"
         generate_completions_from_executable(bin/"pulse", "completion")
