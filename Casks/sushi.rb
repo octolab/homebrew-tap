@@ -1,6 +1,6 @@
 cask "sushi" do
-  version "0.2.1"
-  sha256 "e3cff1e5f672d8dbb0a5bb959f9c7418f202349710e44fe548b51b670f190141"
+  version "0.3.0"
+  sha256 "deedcc583f18d498a2d4370bfe248db3c773f8050f27fd8f96bffae18ad90a06"
 
   url "https://github.com/octopot/sushi/releases/download/v#{version}/sushi_#{version}_darwin-arm64.zip"
   name "Sushi"
