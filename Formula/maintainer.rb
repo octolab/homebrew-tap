@@ -5,13 +5,13 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.5.1"
+  version "0.5.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_darwin-amd64.tar.gz"
-      sha256 "93a162de32de7226d1a27c0827ad827771720869373af60d4b4aa1f884f448c4"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.2/maintainer_0.5.2_darwin-amd64.tar.gz"
+      sha256 "306ef39ca6886595999afbcd546f5e513d7aa540e45c42e0f20367d036d3cdfd"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -20,8 +20,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_darwin-arm64.tar.gz"
-      sha256 "8df2a9f850808d67e2626e772c0eb6d9712d36a05b3b6b82f457630f91dd2869"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.2/maintainer_0.5.2_darwin-arm64.tar.gz"
+      sha256 "56d99ad6692f0fe2cf5dd7a28c7a21768713aad80e7c3087780acb772fe97855"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -33,8 +33,8 @@ class Maintainer < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_linux-amd64.tar.gz"
-      sha256 "c195b82800416c249c134dc85d7392057e647ff835fb4f944518649e24ffd86c"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.2/maintainer_0.5.2_linux-amd64.tar.gz"
+      sha256 "ebe7ebe366a46b788cf460fb68e54712930cf9cb0c3c179acf48abe35ee01bc6"
       define_method(:install) do
         bin.install "maintainer"
         generate_completions_from_executable(bin/"maintainer", "completion")
@@ -42,8 +42,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_linux-arm64.tar.gz"
-      sha256 "4be5347f49cc7d208eca7da0ed316ce95537b34701d2dc2d825c94fe56522ce2"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.2/maintainer_0.5.2_linux-arm64.tar.gz"
+      sha256 "3b7141dde57421c83b71f4e9ffa5ce9c510ceda745964446c80ba6a7cd249cd7"
       define_method(:install) do
         bin.install "maintainer"
         generate_completions_from_executable(bin/"maintainer", "completion")
