@@ -5,13 +5,13 @@
 class Maintainer < Formula
   desc "Maintainer is an indispensable assistant to Open Source contribution."
   homepage "https://github.com/octomation/maintainer"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.0/maintainer_0.5.0_darwin-amd64.tar.gz"
-      sha256 "f43a6b35fbc30ebece01543f0f3a4f7b3413123ff0e963221df4b5bceeee35ac"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_darwin-amd64.tar.gz"
+      sha256 "93a162de32de7226d1a27c0827ad827771720869373af60d4b4aa1f884f448c4"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -20,8 +20,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.0/maintainer_0.5.0_darwin-arm64.tar.gz"
-      sha256 "447e6ec54e968f3e633a16606eb67e118d99319e986e349951a910a594cc1af8"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_darwin-arm64.tar.gz"
+      sha256 "8df2a9f850808d67e2626e772c0eb6d9712d36a05b3b6b82f457630f91dd2869"
 
       define_method(:install) do
         bin.install "maintainer"
@@ -33,8 +33,8 @@ class Maintainer < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.0/maintainer_0.5.0_linux-amd64.tar.gz"
-      sha256 "aa4168a868dc4229c2138d1c7f2b30f639906c53df3e9e11ef809824817dd66a"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_linux-amd64.tar.gz"
+      sha256 "c195b82800416c249c134dc85d7392057e647ff835fb4f944518649e24ffd86c"
       define_method(:install) do
         bin.install "maintainer"
         generate_completions_from_executable(bin/"maintainer", "completion")
@@ -42,8 +42,8 @@ class Maintainer < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/octomation/maintainer/releases/download/v0.5.0/maintainer_0.5.0_linux-arm64.tar.gz"
-      sha256 "857be099963e675fbfc20ca1feb35ca9b6d91f8d3bf8bfab4faebf391d253b3c"
+      url "https://github.com/octomation/maintainer/releases/download/v0.5.1/maintainer_0.5.1_linux-arm64.tar.gz"
+      sha256 "4be5347f49cc7d208eca7da0ed316ce95537b34701d2dc2d825c94fe56522ce2"
       define_method(:install) do
         bin.install "maintainer"
         generate_completions_from_executable(bin/"maintainer", "completion")
@@ -56,7 +56,8 @@ class Maintainer < Formula
     <<~EOS
       Start the local service as your normal user:
         brew services start octolab/tap/maintainer
-      Then open http://maintainer.localhost:17841/
+      Then open it in the browser, again after every start of the service:
+        maintainer service open
     EOS
   end
 
