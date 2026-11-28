@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- The social preview of the home page: render it with og.mjs to public/og.png.
+     It names no versions, so a release does not change it. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --paper: #fbf8f1; --ink: #251d15; --muted: #6a5e50; --line: #e8dfcf; --accent: #a4521c; --wash: #f4ecdf; --card: #fffdf8; --amber: #e9a13b; --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1733px; height: 908px; overflow: hidden; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .og { display: grid; grid-template-columns: 1fr 640px; gap: 70px; align-items: center; height: 100%; padding: 0 96px; }
+  .wordmark { display: flex; align-items: center; gap: 18px; font-size: 44px; font-weight: 750; letter-spacing: -1.5px; }
+  .wordmark img { width: 58px; height: 58px; }
+  h1 { margin: 70px 0 0; font-size: 104px; line-height: 1.04; font-weight: 650; letter-spacing: -.06em; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .command { display: inline-flex; gap: 18px; margin-top: 64px; padding: 22px 30px; border-radius: 16px; background: #1f1913; color: #f6ecdc; font: 30px/1.4 var(--mono); }
+  .command span { color: var(--amber); }
+  .shelf { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .card { display: flex; flex-direction: column; gap: 22px; padding: 34px; border: 2px solid var(--line); border-radius: 22px; background: var(--card); box-shadow: 14px 16px 0 var(--wash); }
+  .card img { width: 76px; height: 76px; border-radius: 14px; }
+  .card b { font-size: 36px; letter-spacing: -1px; }
+  .card span { color: var(--muted); font: 20px/1.4 var(--mono); }
+</style>
+</head>
+<body>
+  <main class="og">
+    <div>
+      <div class="wordmark"><img src="../public/icon.svg" alt="">octolab/tap</div>
+      <h1>Every OctoLab tool, <em>one tap away.</em></h1>
+      <div class="command"><span>$</span>brew tap octolab/tap</div>
+    </div>
+    <div class="shelf">
+      <div class="card"><img src="../public/icons/maintainer.svg" alt=""><div><b>maintainer</b><br><span>formula · service</span></div></div>
+      <div class="card"><img src="../public/icons/indexit.svg" alt=""><div><b>indexit</b><br><span>formula · service</span></div></div>
+      <div class="card"><img src="../public/icons/pulse.svg" alt=""><div><b>pulse</b><br><span>formula · service</span></div></div>
+      <div class="card"><img src="../public/icons/sushi.svg" alt=""><div><b>Sushi</b><br><span>cask · macOS app</span></div></div>
+    </div>
+  </main>
+</body>
+</html>

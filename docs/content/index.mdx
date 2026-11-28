@@ -1,0 +1,51 @@
+---
+title: Every OctoLab tool, one tap away.
+description: The Homebrew tap of OctoLab. Every package it holds, with the version it installs and a link to the project's own site.
+---
+
+import { Hero, More, Products, Services, Updated } from '../components/catalog'
+
+<div className="tap-home">
+  <Hero />
+
+  <ol className="flow-strip" aria-label="How a release reaches you">
+    <li>signed tag <b>a release starts here</b></li>
+    <li aria-hidden="true">→</li>
+    <li>release workflow <b>archives on GitHub</b></li>
+    <li aria-hidden="true">→</li>
+    <li>octolab/tap <b>Formula or Cask, signed</b></li>
+    <li aria-hidden="true">→</li>
+    <li>brew upgrade <b>on your computer</b></li>
+  </ol>
+
+  <Products />
+
+  <Services />
+
+  <More />
+
+  <section className="tap-notes" aria-labelledby="notes-title">
+    <div className="section-heading">
+      <p className="eyebrow">GOOD TO KNOW</p>
+      <h2 id="notes-title">Name the tap, and Homebrew does the rest.</h2>
+    </div>
+    <div className="note-grid">
+      <div>
+        <b>Always the full name</b>
+        <p>Some names here also belong to packages of Homebrew itself, golangci-lint among them. The commands on this page always say <code>octolab/tap/&lt;name&gt;</code>, so you get the package of this tap.</p>
+      </div>
+      <div>
+        <b>Upgrades come with Homebrew</b>
+        <p>A release of a product rewrites its Formula or Cask in the tap. <code>brew update</code> fetches it, and <code>brew upgrade</code> installs it with everything else.</p>
+      </div>
+      <div>
+        <b>The page follows the tap</b>
+        <p>The versions and dates here are read from the tap whenever it changes, so a card never promises a release that Homebrew cannot install yet.<Updated /></p>
+      </div>
+      <div>
+        <b>Something broken?</b>
+        <p>Report a package that fails to install or upgrade in the <a href="https://github.com/octolab/homebrew-tap/issues">issues of the tap</a>; anything else belongs to the project’s own repository.</p>
+      </div>
+    </div>
+  </section>
+</div>

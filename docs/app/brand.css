@@ -1,0 +1,21 @@
+/*
+ * octolab/tap brand, loaded after globals.css, which is kept identical to
+ * octopot/indexit. Only the tokens differ: the paper of a beer mat, dark malt
+ * for the ink and a burnt amber for the accent.
+ *
+ * Both blocks restate every token they change: :root and .dark have the same
+ * specificity, so a :root rule here would also win over the dark theme.
+ * Contrast (WCAG): accent 5.2:1 and muted 6.0:1 on the paper, 4.7:1 and 5.4:1
+ * on the wash; in the dark, accent 9.9:1 and muted 8.2:1.
+ */
+:root {
+  --paper: #fbf8f1; --ink: #251d15; --muted: #6a5e50; --line: #e8dfcf;
+  --accent: #a4521c; --wash: #f4ecdf; --card: #fffdf8;
+  --amber: #e9a13b; --foam: #fff6e4; --shadow: 74 50 22;
+}
+.dark {
+  --paper: #16130f; --ink: #f3ebdf; --muted: #b8ab9a; --line: #332a20;
+  --accent: #f0b261; --wash: #211b15; --card: #1d1813;
+  --amber: #e9a13b; --foam: #2a2118; --shadow: 0 0 0;
+}
+::selection { background: #f6d9b5; color: #251d15; }

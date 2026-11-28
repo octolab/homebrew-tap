@@ -1,0 +1,128 @@
+{
+  "groups": [
+    {
+      "id": "products",
+      "eyebrow": "01 / PRODUCTS",
+      "title": "Tools in active development, each with its own site.",
+      "lead": "Released from signed tags. Every release updates its package here, and the card shows the version the tap installs."
+    },
+    {
+      "id": "more",
+      "eyebrow": "02 / FORKS AND EARLIER PROJECTS",
+      "title": "Still installable, no longer in active development.",
+      "lead": "Forks that added what upstream lacked at the time, a project template and an earlier service. Their packages stay at their last release."
+    }
+  ],
+  "items": [
+    {
+      "name": "maintainer",
+      "kind": "formula",
+      "group": "products",
+      "icon": "icons/maintainer.svg",
+      "title": "maintainer",
+      "tagline": "See all of your open source. Move it every day.",
+      "summary": "A local hub shows every checkout and every issue across your repositories in one place, and one CLI keeps the checkouts current and plans your next contribution.",
+      "site": "https://maintainer.octolab.org/",
+      "changelog": "https://maintainer.octolab.org/changelog/v{version}/",
+      "status": "active",
+      "local": "http://maintainer.localhost:17841/",
+      "open": "maintainer service open"
+    },
+    {
+      "name": "indexit",
+      "kind": "formula",
+      "group": "products",
+      "icon": "icons/indexit.svg",
+      "title": "indexit",
+      "tagline": "Your Telegram. Your data.",
+      "summary": "Describe Telegram users, bots and channels, export conversations as JSON Lines and keep the photos of a post in your notes, served by a local image service.",
+      "site": "https://indexit.octolab.org/",
+      "changelog": "https://indexit.octolab.org/changelog/v{version}/",
+      "status": "active",
+      "local": "http://indexit.localhost:17840/"
+    },
+    {
+      "name": "pulse",
+      "kind": "formula",
+      "group": "products",
+      "icon": "icons/pulse.svg",
+      "title": "pulse",
+      "tagline": "Your morning, with a hand on the pulse.",
+      "summary": "The GitHub trends of trendshift.io and github.com as one calm morning paper that shows only what you have not seen. Keep what matters in one click.",
+      "site": "https://pulse.octolab.org/",
+      "changelog": "https://pulse.octolab.org/changelog/v{version}/",
+      "status": "active",
+      "local": "http://pulse.localhost:17842/"
+    },
+    {
+      "name": "sushi",
+      "kind": "cask",
+      "group": "products",
+      "icon": "icons/sushi.svg",
+      "title": "Sushi",
+      "tagline": "The prompt deserves an editor.",
+      "summary": "A prompt composer for macOS: write or dictate, rewrite a selection with a model on your Mac, and send the prompt back to your coding agent.",
+      "site": "https://sushi.octolab.org/",
+      "changelog": "https://sushi.octolab.org/changelog/v{version}/",
+      "status": "active"
+    },
+    {
+      "name": "service",
+      "kind": "formula",
+      "group": "more",
+      "icon": "icons/service.svg",
+      "title": "go-service",
+      "tagline": "Template for a typical service written in Go.",
+      "summary": "The release of the template itself: a service and its client, built and published by the pipeline that a new service starts with.",
+      "site": "https://go-service.octolab.org/",
+      "status": "template"
+    },
+    {
+      "name": "sparkle",
+      "kind": "formula",
+      "group": "more",
+      "icon": "icons/sparkle.svg",
+      "title": "sparkle",
+      "tagline": "A personal development framework and knowledge platform.",
+      "summary": "The service of the Sparkle framework for personal knowledge management, with its sparkle command line.",
+      "site": "https://github.com/withsparkle/service",
+      "status": "legacy"
+    },
+    {
+      "name": "godownloader",
+      "kind": "formula",
+      "group": "more",
+      "icon": "icons/wrench.svg",
+      "title": "godownloader",
+      "tagline": "Install scripts from a GoReleaser config.",
+      "summary": "Reads a .goreleaser.yml and writes a shell script that downloads the right archive for the machine. A fork that adds Homebrew support.",
+      "site": "https://github.com/kamilsk/godownloader",
+      "status": "fork",
+      "upstream": "goreleaser/godownloader"
+    },
+    {
+      "name": "goimports",
+      "kind": "formula",
+      "group": "more",
+      "icon": "icons/wrench.svg",
+      "title": "goimports",
+      "tagline": "Go imports, fixed and formatted.",
+      "summary": "Adds missing imports, removes unused ones and formats the code as gofmt does. A fork with extended and simplified modes; its repository describes it as archived.",
+      "site": "https://github.com/kamilsk/go-tools",
+      "status": "fork",
+      "upstream": "golang/tools"
+    },
+    {
+      "name": "golangci-lint",
+      "kind": "formula",
+      "group": "more",
+      "icon": "icons/wrench.svg",
+      "title": "golangci-lint",
+      "tagline": "Fast linters runner for Go, with looppointer.",
+      "summary": "A fork of golangci-lint that adds the looppointer linter; its repository describes it as archived. Shell completions come with it.",
+      "site": "https://github.com/kamilsk/golangci-lint",
+      "status": "fork",
+      "upstream": "golangci/golangci-lint"
+    }
+  ]
+}
