@@ -92,10 +92,22 @@ The build stops while the two disagree, the deployment is smoke-tested, and
 
 `package.json` and the lockfile follow octomation/pulse. It pins Zod to
 `4.1.12` under `nextra-theme-docs` to avoid
-[a validation regression](https://github.com/shuding/nextra/issues/5036), and
-overrides the xmldom dependency of `speech-rule-engine@4.1.4` with
-`@xmldom/xmldom@^0.9.12` for its security fixes. Both reasons, and when to
-drop them, are described in the docs README of octomation/pulse; move with it.
-Dependabot proposes npm updates of this folder daily.
+[a validation regression](https://github.com/shuding/nextra/issues/5036).
+Keep the exact Zod version: a caret range allows incompatible releases. Zod
+before 4.6.6 has a memory exhaustion advisory (GHSA-mrhx-c7xc-m3w5); its
+Dependabot alert is dismissed as a tolerable risk, since only the static
+build validates the repository's own files, and Zod 4.6.6 still fails the
+build with that regression. Once a Nextra release after 4.6.1 ships
+[its fix](https://github.com/shuding/nextra/pull/4990), move the override to
+`4.6.6` or later, or drop it, and check the static export.
+
+Nextra 4.6.1 pins minimatch 10 (through `ts-morph`) and KaTeX 0.16 below
+their advisories (GHSA-g3hv-75wg-m249, GHSA-238p-pmpm-9mq7); `overrides` in
+`package.json` lift them to minimatch 11 and KaTeX 0.18, and override the
+xmldom dependency of `speech-rule-engine@4.1.4` with `@xmldom/xmldom@^0.9.12`
+for its security fixes. The site builds with all of them.
+[`.github/self-control.md`](../.github/self-control.md) lists every override,
+why it is there and when to drop it. Dependabot proposes npm updates of this
+folder weekly, on Monday.
 
 Search is disabled: static search indexing is not configured.
