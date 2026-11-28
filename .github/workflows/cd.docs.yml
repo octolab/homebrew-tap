@@ -1,0 +1,168 @@
+name: Documentation delivery
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/actions/notify/**'
+      - '.github/scripts/**'
+      - '.github/settings.json'
+      - '.github/workflows/cd.docs.yml'
+      - 'Casks/**'
+      - 'Formula/**'
+      - 'README.md'
+      - 'Taskfile'
+      - 'bin/lib/**'
+      - 'docs/**'
+
+  # a release of a product pushes its Formula or Cask here: the catalog
+  # follows the tap, so every such push rebuilds the site
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/actions/notify/**'
+      - '.github/scripts/**'
+      - '.github/settings.json'
+      - '.github/workflows/cd.docs.yml'
+      - 'Casks/**'
+      - 'Formula/**'
+      - 'README.md'
+      - 'Taskfile'
+      - 'bin/lib/**'
+      - 'docs/**'
+
+  # no schedule: GitHub disables a scheduled workflow after 60 days without
+  # activity in the repository, and a disabled workflow ignores push too, so a
+  # quiet tap would stop following the next release
+
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: The reason for dispatching it manually.
+        type: string
+        default: manual healthcheck
+        required: true
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Building
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: read
+
+    steps:
+      # the full history gives each package the date of its last update
+      - name: Checkout the repository
+        uses: actions/checkout@v7.0.1
+        with: { fetch-depth: 0 }
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
+          check-latest: true
+      - name: Test the scripts
+        run: node --test .github/scripts/*.test.mjs
+      - name: Check the catalog
+        run: node .github/scripts/catalog.mjs check
+      - name: Set up GitHub Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        id: pages
+        uses: actions/configure-pages@v6.0.0
+      # the build bakes the base path and the origin in: refuse a domain
+      # that .github/settings.json does not expect
+      - name: Check the Pages domain
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: node .github/scripts/site.mjs pages "${BASE_URL}"
+      # the source, the domain and Enforce HTTPS, as .github/settings.json declares
+      - name: Check the Pages settings
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node .github/scripts/site.mjs settings
+      - name: Install dependencies
+        run: ./Taskfile docs npm ci
+
+      - name: Resolve the preview URL
+        if: github.event_name == 'pull_request' || github.ref != 'refs/heads/main'
+        run: node .github/scripts/site.mjs site-env >> "$GITHUB_ENV"
+      - name: Build the site
+        run: ./Taskfile docs build
+        env:
+          TARGET: static
+          BASE_PATH: ${{ steps.pages.outputs.base_path || env.BASE_PATH }}
+          SITE_URL: ${{ steps.pages.outputs.base_url || env.SITE_URL }}
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v5.0.0
+        with: { path: docs/dist }
+
+  deploy:
+    name: Deploying
+    needs: [ build ]
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+
+    steps:
+      - name: Deploy it to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
+      - name: Checkout the repository
+        uses: actions/checkout@v7.0.1
+      # Pages may serve the previous deployment for a few minutes: retries 20×15s
+      - name: Smoke-test the site
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node .github/scripts/site.mjs smoke "${PAGE_URL}"
+
+  # the sites, release notes and repositories the catalog links to; a broken
+  # link fails this job and its notification, never the deployment
+  links:
+    name: Checking links
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7.0.1
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 24
+          check-latest: true
+      - name: Check the links of the catalog
+        run: node .github/scripts/catalog.mjs links
+
+  notify:
+    name: Notifying
+    needs: [ build, deploy, links ]
+    runs-on: ubuntu-24.04
+    if: github.event_name != 'pull_request' && (failure() || success())
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7.0.1
+        with: { fetch-depth: 0 }
+
+      - name: Send notification
+        uses: ./.github/actions/notify
+        with:
+          emoji: 🍻
+          channel: ${{ secrets.SLACK_WEBHOOK }}
+          success: ${{ ! contains(needs.*.result, 'failure') }}

@@ -1,0 +1,13 @@
+{
+  "pages": {
+    "cname": "brew.octolab.org",
+    "https_enforced": true,
+    "build_type": "workflow"
+  },
+  "workflows": {
+    "ci.godownloader.yml": { "state": "disabled", "reason": "the formula stays at its last release; enable the check again with a new one" },
+    "ci.goimports.yml": { "state": "disabled", "reason": "the formula stays at its last release; enable the check again with a new one" },
+    "ci.golangci-lint.yml": { "state": "disabled", "reason": "the formula stays at its last release; enable the check again with a new one" },
+    "ci.sparkle.yml": { "state": "disabled", "reason": "the formula stays at its last release; enable the check again with a new one" }
+  }
+}
