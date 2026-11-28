@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/actions/check/golangci-lint.bash'
       - '.github/workflows/ci.golangci-lint.yml'
-      - 'Formula/golangci-lint'
+      - 'Formula/golangci-lint.rb'
 
   schedule:
     - cron: '0 7 * * 1' # at 07:00 on Monday, UTC
@@ -19,6 +19,9 @@ on:
         default: manual healthcheck
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   check:
     name: Checking
@@ -26,7 +29,7 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v7.0.1
         with: { fetch-depth: 0 }
 
       - name: Check consistency
@@ -36,12 +39,12 @@ jobs:
   notify:
     name: Notifying
     needs: [ check ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: failure() || success()
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v7.0.1
         with: { fetch-depth: 0 }
 
       - name: Send notification

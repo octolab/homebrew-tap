@@ -16,6 +16,7 @@ on:
           - Continuous integration (golangci-lint)
           - Continuous integration (maintainer)
           - Continuous integration (sparkle)
+          - Documentation delivery
           - Workflow runs cleanup
         default: Workflow runs cleanup
         required: true
@@ -29,16 +30,19 @@ on:
         default: manual healthcheck
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   delete:
     name: Deleting
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       actions: write
 
     steps:
       - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@v2.0.5
+        uses: Mattraks/delete-workflow-runs@v2.1.0
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
@@ -48,31 +52,19 @@ jobs:
               && github.event.inputs.pattern
               || ''
             }}
-          dry_run: ${{ fromJSON('["", "true"]')[github.event.inputs.dry_run == 'true'] }}
+          dry_run: ${{ inputs.dry_run && 'true' || 'false' }}
           retain_days: 0
           keep_minimum_runs: 0
-      - name: Finishing workflow runs deletion
-        run: |
-          gh run list \
-            -R '${{ github.repository }}' \
-            --status completed \
-            --limit 100 \
-            --json databaseId \
-            --jq '.[] | .databaseId' |
-            xargs -n1 --no-run-if-empty gh run delete -R '${{ github.repository }}'
-        if: github.event.inputs.pattern == 'All'
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
 
   notify:
     name: Notifying
     needs: [ delete ]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: failure() || success()
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v7.0.1
         with: { fetch-depth: 0 }
 
       - name: Send notification
